@@ -4,3 +4,13 @@ venv
 
 # Data
 data
+
+lib/__pycache__
+mlruns/
+lightning_logs
+
+.vscode/
+
+# Model
+model.pth
+UAV_ViT.pt
