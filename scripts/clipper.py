@@ -1,7 +1,9 @@
 import os
 import rasterio
 from rasterio.mask import mask
-from lib.pyshp import shapefile
+import sys
+sys.path.append('../')
+from pyshp import shapefile
 
 class Clipper:
 
@@ -51,9 +53,9 @@ class Clipper:
 
 
 if __name__ == "__main__":
-    orthomosaic_path = './data/orthophoto/raster.tif'
-    shapefile_path = './data/raw/Case_Study_1/Shapefile/Plots_Shapefile/all_plots.shp'
-    output_path = './data/plots'
+    orthomosaic_path = '../data/orthophoto/raster.tif'
+    shapefile_path = '../data/raw/Case_Study_1/Shapefile/Plots_Shapefile/all_plots.shp'
+    output_path = '../data/plots'
     
     clipper = Clipper(orthomosaic_path, shapefile_path, output_path)
     clipper.start()

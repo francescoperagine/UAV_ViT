@@ -8,6 +8,7 @@ data
 lib/__pycache__
 mlruns/
 lightning_logs
+__pycache__/
 
 .vscode/
 
