@@ -15,3 +15,5 @@ __pycache__/
 # Model
 model.pth
 UAV_ViT.pt
+
+**/pyshp/
