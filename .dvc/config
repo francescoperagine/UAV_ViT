@@ -1,4 +1,6 @@
 [core]
     remote = origin
+[cache]
+    type = copy
 ['remote "origin"']
     url = ssh://82.49.17.203:31520/UAV_ViT
