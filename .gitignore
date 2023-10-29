@@ -4,6 +4,7 @@ venv
 
 # Data
 data
+docs
 
 lib/__pycache__
 mlruns/
@@ -13,7 +14,7 @@ __pycache__/
 .vscode/
 
 # Model
-model.pth
-UAV_ViT.pt
+models/
+scripts/
 
 **/pyshp/

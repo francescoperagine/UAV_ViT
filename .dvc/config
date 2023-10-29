@@ -1,0 +1,4 @@
+[core]
+    remote = origin
+['remote "origin"']
+    url = ssh://82.49.17.203:31520/UAV_ViT
