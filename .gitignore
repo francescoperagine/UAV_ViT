@@ -17,4 +17,4 @@ __pycache__/
 models/
 scripts/
 
-**/pyshp/
+pyshp
