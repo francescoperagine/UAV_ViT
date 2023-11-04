@@ -1,0 +1,52 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+% Packages
+% \usepackage{cite} % for citations
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{stfloats}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{pxfonts}
+\usepackage[pagebackref,breaklinks,colorlinks,citecolor=cvprblue]{hyperref}
+\usepackage{lineno}
+% \usepackage{multicol}
+\linenumbers
+\usepackage{bookmark} % for updating outlines
+
+\graphicspath{ {./images/} } 
+
+% Title and author information
+\title{Unmanned Aerial Vehicles powered by Vision Transformer for Precision Agriculture}
+\author{Author Name}
+\date{\today}
+
+\begin{document}
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+
+\author{Francesco Peragine\\
+Department of Computer Science\\
+University of Bari Aldo Moro\\
+Bari, Italy\\
+{\tt\small f.peragine@studenti.uniba.it}}
+
+\maketitle
+
+\input{sec/0_abstract}    
+\input{sec/1_introduction}
+\input{sec/2_related_work}
+\input{sec/3_data}
+\input{sec/4_methods}
+\input{sec/5_experiments}
+\input{sec/6_conclusion}
+
+% References
+{
+    \small
+    \bibliography{references}
+    \bibliographystyle{IEEEtran}
+}
+
+\end{document}
