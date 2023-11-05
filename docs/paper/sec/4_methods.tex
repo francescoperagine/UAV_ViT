@@ -51,7 +51,7 @@ These $h$ sequences are rearranged into a $N \times dh$ sequence that is reproje
 \label{subsec:TL-FT}
 
 Our model implementation is based on the Lightning framework \cite{Falcon_PyTorch_Lightning_2019} which build upon \cite{paszke2019pytorch}.
-It was pre-trained on a large image dataset\cite{deng2009imagenet} mostly used in classification tasks  and fine-tuned by using the plots images extracted from the orthomosaic. Pretraining is useful because it allows us to leverage knowledge learned from a large dataset and apply it to a different task.
+It was pre-trained on a large image dataset\cite{deng2009imagenet} mostly used in classification tasks and fine-tuned by using the plots images extracted from the orthomosaic. Pretraining is useful because it allows us to leverage knowledge learned from a large dataset and apply it to a different task.
 In our case, we used the pre-trained model to extract features from ImageNet and then fine-tuned it to our specific task.
 
 To tailor the model for our regression task, we replaced the backbone's $head$ with a linear layer, which outputs a single-value output.
@@ -59,15 +59,26 @@ To tailor the model for our regression task, we replaced the backbone's $head$ w
 \subsection{Loss Function}
 \label{subsec:loss_function}
 
+We compared the performance of the model using different loss functions to measure the deviation of prediction from the actual value: the Huber Loss \cite{huber1964robust}, the Pseudo-Huber Loss \cite{girshick2015fast} and the Log Cosh Loss \cite{moshagen2021finding}.
 
-We adopted the Log Cosh Loss function \cite{moshagen2021finding} to measure the deviation of prediction from the actual value.
+All the loss functions act as a combination of linear and quadratic scorings, but they differ in the way they are combined.
+The Huber Loss is a piecewise function that uses a hyperparameter delta $\delta$ to distinguish between linearity above and quadratic natures below it.
+
+\begin{equation}
+\label{eq:huber}
+    \text{Huber}(y, \hat{y}) = \begin{cases}
+    \frac{1}{2} \ast (y - \hat{y})^2 & \text{if } |y - \hat{y}| \leq \delta \\
+    \delta \ast |y - \hat{y}| - \frac{1}{2} \ast \delta^2 & \text{otherwise}
+    \end{cases}
+\end{equation}
+
+Similarly to the Huber Loss function \cite{huber1964robust}, the Log Cosh is a combination of linear and quadratic scorings as calculates the log of hyperbolic cosine of the error.
 
 \begin{equation}
 \label{eq:logcosh}
     \text{LogCosh}(y, \hat{y}) = \frac{1}{n} \sum_{n = 1}^{n} \log(\cosh(\hat{y} - y))
 \end{equation}
 
-Similarly to the Huber Loss function \cite{huber1964robust}, the Log Cosh is a combination of linear and quadratic scorings as calculates the log of hyperbolic cosine of the error.
 Its implementation uses the $SoftPlus$ activation function, that is a smooth approximation to the ReLU function, and can be used to constrain the output of a machine to always be positive.
 
 \begin{equation}
@@ -75,16 +86,30 @@ Its implementation uses the $SoftPlus$ activation function, that is a smooth app
     \text{Softplus}(x) = \frac{1}{\beta} \ast \log(1 + \exp(\beta \ast x))
 \end{equation}
 
+Differently from the Huber Loss, Log Cosh is not a piecewise function, it is twice differentiable and it does not require the additional delta ($\delta$) hyperparameter to distinguish between linearity above and quadratic natures below it \ref{fig:LogCoshHuberLoss}.
+Therefore, it has a considerable advantage over Huber loss for its property of continuity and differentiability.
+It is, however, less adaptive than Huber loss due to the absence of any hyper-parameter.
+
 \begin{figure}[t!]
     \includegraphics[width=\linewidth]{../images/LogCoshHuberLoss}
     \caption{LogCosh and HuberLoss functions.}
     \label{fig:LogCoshHuberLoss}
     \centering
 \end{figure}
-Differently from the Huber Loss, Log Cosh is not a piecewise function, it is twice differentiable and it does not require the additional delta ($\delta$) hyperparameter to distinguish between linearity above and quadratic natures below it \ref{fig:LogCoshHuberLoss}.
-Therefore, it has a considerable advantage over Huber loss for its property of continuity and differentiability.
-It is, however, less adaptive than Huber loss due to the absence of any hyper-parameter.
 
+The Pseudo-Huber Loss is a smooth approximation to the Huber Loss function and is twice differentiable.
+The main difference between the Log Cosh Loss and the Pseudo-Huber Loss functions is that the log cosh loss is always a quadratic function, while the pseudo-huber loss is a quadratic function for values of $|y - \hat{y}|$ below the threshold $\delta$ and a linear function for values of $|y - \hat{y}|$ above the threshold $\delta$.
+
+\begin{equation}
+L(y, \hat{y}) = \begin{cases}
+    \frac{(y - \hat{y})^2}{2} & |y - \hat{y}| < \delta \\
+    \delta |y - \hat{y}| - \frac{\delta^2}{2} & |y - \hat{y}| \ge \delta
+    \end{cases}
+\end{equation}
+
+The log cosh loss has the advantage of being always a quadratic function, which makes it more efficient to optimize than the pseudo-huber loss. However, the log cosh loss may be less robust to outliers than the pseudo-huber loss.
+
+The pseudo-huber loss has the advantage of being robust to outliers, which makes it a good choice for datasets that contain outliers. However, the pseudo-huber loss may be less efficient to optimize than the log cosh loss.
 
 \subsection{Optimizer}
 \label{subsec:optimizer}

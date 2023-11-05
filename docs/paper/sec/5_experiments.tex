@@ -3,55 +3,55 @@
 
 In this section, we provide an overview of the experiments performed to assess the performance and robustness of the PyTorch ViT\_B\_16 model in the context of precision agriculture.
 
-Addressing the challenge of overfitting stands as a significant objective when working with ViT models. Overfitting occurs when models become overly specialized in the training data, which can compromise their ability to generalize effectively. In our experimentation, we observed a tendency for the model to overfit, given the relatively small dataset. To counter this, we explored an array of strategies, fine-tuning essential parameters such as learning rate, weight decay, dropout rates, attention dropout, and the extent of layer freezing. Our evaluation metrics encompass critical indicators, including Mean Squared Error (MSE), Mean Absolute Error (MAE), and Explained Variance, providing a holistic evaluation of model accuracy and error distribution.
+In our experimentation, we observed a tendency for the model to overfit, given the relatively small dataset. Overfitting occurs when models become overly specialized in the training data, which can compromise their ability to generalize effectively. To counter this, we explored an array of strategies and fine-tuned essential parameters. We also investigated alternative ways to optimize the hyperparameters and the model performace \cite{touvron2021training}, such as the Learning Rate finder \cite{smith2017cyclical} and alternate weights sets \cite{singh2022revisiting}.
 
-Furthermore, we investigated the effect of different loss functions, including Huber Loss, Pseudo-Huber Loss, and Log-Cosh Loss, aiming to enhance the model's performance. These experiments are enhanced by insightful visualizations, which help assess the model's behavior and predictive capabilities.
+Furthermore, as stated in \ref{sec:methods} we investigated the effect of different loss functions, including Huber Loss, Pseudo-Huber Loss and Log-Cosh Loss, aiming to enhance the model's performance. These experiments are supported by insightful visualizations, which help assess the model's behavior and predictive capabilities.
 
-Evaluating the graphs we've introduced, it is evident that the regression model effectively predicts observed values with acceptable accuracy. However, some points remain challenging for the model to predict accurately. To achieve further precision, addressing outliers and collecting additional data is recommended. Specific actions to enhance the model's accuracy include removing outliers using outlier processing techniques, particularly for high-target values. Consideration of more robust models or regularization techniques is also recommended to improve model generalization.
-
-It's important to note that while these graphs provide a general indication of model accuracy, a more precise evaluation must consider additional metrics, such as MSE and RMSE. Interpretation of individual graphs is as follows:
-
-Boxplot: The data displays an asymmetric distribution with a longer tail to the right. Two outliers are evident at 1.6 and 2.8.
-
-Residual Plot: The residuals are randomly scattered around the line at 0, with no discernible trend or pattern. Several points lie outside the plot.
-
-Residual vs. Outputs Plot: The residuals are randomly distributed around the line at 0, suggesting that the model effectively fits the data. Some outliers may warrant further investigation.
-
-Outputs vs. Targets Plot: A strong correlation exists between predicted and actual values, indicating successful value prediction. However, several data points lie outside the primary cluster. These points may represent outliers, data points that deviate from the general data model. Outliers can result from various factors, such as measurement errors or anomalies in the data.
+\begin{figure*}
+    \begin{subfigure}{0.66\columnwidth}
+        \includegraphics[width=\linewidth]{../images/outputs_vs_targets}
+        \caption{Outputs vs. Targets}
+        \label{fig:outputs_vs_targets}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.66\columnwidth}
+        \includegraphics[width=\linewidth]{../images/residuals_errors}
+        \caption{Residual Errors}
+        \label{fig:residuals_errors}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.66\columnwidth}
+        \includegraphics[width=\linewidth]{../images/residuals_vs_outputs}
+        \caption{Residuals vs. Outputs}
+        \label{fig:residuals_vs_outputs}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.66\columnwidth}
+        \includegraphics[width=\linewidth]{../images/targets_means_vs_losses}
+        \caption{Target Means vs. Losses}
+        \label{fig:targets_means_vs_losses}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.66\columnwidth}
+        \includegraphics[width=\linewidth]{../images/residuals_hist}
+        \caption{Residual Histogram}
+        \label{fig:residuals_hist}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.66\columnwidth}
+        \includegraphics[width=\linewidth]{../images/boxplot}
+        \caption{Boxplot}
+        \label{fig:boxplot}
+    \end{subfigure}
+    \hfill
+\end{figure*}
 
 \subsection{Results}
 \label{sec:results}
 
-% \begin{figure*}[t!]
-%     \includegraphics[width=\linewidth]{../images/outputs_vs_targets}
-%     \caption{Distribution of errors between model predictions and actual values. It allows for the identification of heteroskedasticity (non-constant variance) and the normality of errors.}
-%     \label{fig:ViT}
-%     \centering
-% \end{figure*}
+The residuals are randomly distributed around the zero line, suggesting that the model is doing a good job of fitting the data \ref{fig:residuals_vs_outputs}. 
+Overall, the model does a good job of predicting values, as evidenced by the correlation between predicted and actual values \ref{fig:outputs_vs_targets}. 
+However, there are a few data points that are outside the main cluster. These points may be outliers, which are data points that do not fit the overall pattern of the data.
+In this case, due to the measurement of the ground truth taken three weeks earlier that the DSM imaging, the outliers are likely due to measurement errors. 
 
-Residuals vs. Outputs Plot:
-How errors vary concerning the magnitude of model predictions. It can reveal whether the model tends to underestimate or overestimate values in specific amplitude ranges.
-If there are clear patterns of error related to the amplitude of predictions, the model might benefit from adjustments to handle these behaviors.
-
-Residual Errors Plot:
-Highlights outliers and discrepancies between model predictions and real data. It is useful for identifying data points that may require special attention.
-Data points highlighted as outliers can be examined to understand if specific conditions challenge the model.
-
-Targets Means vs. Losses Plot:
-How model performance varies based on label variability.
-It helps understand if the model is sensitive to different conditions and whether losses increase with more variable labels. This may suggest opportunities for developing specific training strategies or adjustments.
-
-Outputs vs. Targets Plot:
-This graph offers a direct visualization of model predictions versus actual labels, showing how accurately the model approximates real values.
-It is useful for assessing the overall adequacy of the model and whether adjustments are needed to bring predictions even closer to actual values.
-
-
-The model was trained using a supervised learning method. This method involves providing the model with a dataset of labeled images, in which each image has been assigned a category. The model is then trained to correctly identify the categories of the images. In this study, the model was trained for 100 epochs using the AdamW optimization algorithm with a learning rate of 0.001.
-
-Find LR \cite{smith2017cyclical}
-
-huberloss \cite{huber1964robust}
-
-
-swag weights training recipe \cite{singh2022revisiting}
-vit 16b weights DeIT training recipe \cite{touvron2021training}
+Results were not promising as the model was not able to strike a good R2Score. Across multiple hyperparameters configuration, the best R2Score result was was $\approx  0.27$ and it was observed with 9 frozen layers, LR =$1\exp{-6}$, Weight Decay = $1\exp{-1}$ and dropout $0.2$. This is likely due to the small dataset size, which is not enough to train a model with 86 million parameters. The model was also not able to converge, as the loss function was not able to reach a minimum value. This is likely due to the small learning rate, which was necessary to avoid overfitting.

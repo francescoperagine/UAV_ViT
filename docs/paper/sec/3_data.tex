@@ -13,7 +13,7 @@ Approximate locations of raw images (longitude, latitude, and altitude) were rec
 \label{sec:preprocessing}
 
 Significant long-term challenges related to data collection/processing and interpretation of the processed data need to be addressed before breeders can fully embrace these systems. As raw data moves through the application development pipeline [\ref{fig:dev_pipeline}].
-\begin{figure}[h!]
+\begin{figure}[t!]
     \includegraphics[width=\linewidth]{../images/dev_pipeline} 
     \caption{UAVs application development workflow. Figure from \cite{jung2021potential}.}
     \label{fig:dev_pipeline}
@@ -25,7 +25,7 @@ Because of the time between the ground truth measurement and the generation of t
 
 GCPs are critical for georeferencing the images and therefore for the generation of the orthomosaic. The $61x61cm$ concrete tiles were installed at the corners and interior locations of all UAVs\' routes and were painted black, dark gray and light gray ($\approx$ 10\%, 20\% and 40\% reflectance).
 
-The GCPs coordinates were converted from the 
+The provided GCPs coordinates were converted from the EPSG:32614 (WGS 84 / UTM zone 14N) to the EPSG:4326 (WGS 84) coordinate reference system (CRS) with the QGIS software \footnote{QGIS is a free and open-source cross-platform desktop geographic information system application that supports viewing, editing, and analysis of geospatial data: \url{https://qgis.org/}}.
 
 The GCPs coordinates have been used with the GCPEditorPro software to identify the tiles on the ground within the overlaying images collected by the UAVs.
 This lead to the georeferencing of the images that was supplied to the WebODM software to generate an orthomosaic of the field [\ref{fig:orthomosaic}].

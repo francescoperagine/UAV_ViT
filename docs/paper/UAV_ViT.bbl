@@ -107,16 +107,19 @@ J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei, ``Imagenet: A
   computer vision and pattern recognition}.\hskip 1em plus 0.5em minus
   0.4em\relax Ieee, 2009, pp. 248--255.
 
-\bibitem{moshagen2021finding}
-T.~Moshagen, N.~A. Adde, and A.~N. Rajgopal, ``Finding hidden-feature depending
-  laws inside a data set and classifying it using neural network,'' 2021.
-
 \bibitem{huber1964robust}
 \BIBentryALTinterwordspacing
 P.~J. Huber, ``{Robust Estimation of a Location Parameter},'' \emph{The Annals
   of Mathematical Statistics}, vol.~35, no.~1, pp. 73 -- 101, 1964. [Online].
   Available: \url{https://doi.org/10.1214/aoms/1177703732}
 \BIBentrySTDinterwordspacing
+
+\bibitem{girshick2015fast}
+R.~Girshick, ``Fast r-cnn,'' 2015.
+
+\bibitem{moshagen2021finding}
+T.~Moshagen, N.~A. Adde, and A.~N. Rajgopal, ``Finding hidden-feature depending
+  laws inside a data set and classifying it using neural network,'' 2021.
 
 \bibitem{kingma2017adam}
 D.~P. Kingma and J.~Ba, ``Adam: A method for stochastic optimization,'' 2017.

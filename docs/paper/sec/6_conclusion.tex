@@ -1,6 +1,9 @@
 \section{Conclusion}
 \label{sec:conclusion}
 
-In conclusion, we developed an AI model for corn that is based on a Vision Transformer architecture.
-The model was trained on a dataset of aerial images of corn fields and was evaluated on a held-out test set.
-The model achieved an accuracy of 95\% on the test set, indicating that it is able to accurately predict the height of corn plants from aerial images.
+This study introduces a novel approach to crop yield prediction utilizing a deep learning model to forecast crop yield based on a digital surface model (DSM) image of the field. The researchers employed a ViT model, a transformer-based architecture that has demonstrated efficacy in computer vision tasks. Additionally, they investigated the application of various loss functions, including Huber Loss, Pseudo-Huber Loss, and Log-Cosh Loss, with the goal of improving model performance. Insightful visualizations are employed to support these experiments, aiding in the evaluation of the model's behavior and predictive capabilities.
+Despite the promising methodology, the results indicate that the model was unable to achieve a satisfactory R2Score. 
+
+This suboptimal performance is likely attributable to the malformed ground truth and to the limited dataset size, which is insufficient to adequately train a model with 86 million parameters. 
+
+Looking forward, several potential avenues for improvement can be pursued, like the use of a larger dataset, the use of a different model architecture.
