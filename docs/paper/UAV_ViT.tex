@@ -12,18 +12,20 @@
 \usepackage{pxfonts}
 \usepackage[pagebackref,breaklinks,colorlinks,citecolor=cvprblue]{hyperref}
 \usepackage{lineno}
-% \usepackage{multicol}
-\linenumbers
-\usepackage{bookmark} % for updating outlines
+\usepackage{hyperref}
+
+% \linenumbers
+% \usepackage{bookmark} % for updating outlines
+
 
 \graphicspath{ {./images/} } 
 
+\begin{document}
 % Title and author information
-\title{Unmanned Aerial Vehicles powered by Vision Transformer for Precision Agriculture}
+\title{Unmanned Aerial Vehicles powered by Vision Transformer\\ for Precision Agriculture}
 \author{Author Name}
 \date{\today}
 
-\begin{document}
 \definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
 
 \author{Francesco Peragine\\
@@ -33,6 +35,11 @@ Bari, Italy\\
 {\tt\small f.peragine@studenti.uniba.it}}
 
 \maketitle
+\pagestyle{empty}
+\newpage
+\pagenumbering{arabic} 
+\pagestyle{plain}
+\setcounter{page}{1}
 
 \input{sec/0_abstract}    
 \input{sec/1_introduction}

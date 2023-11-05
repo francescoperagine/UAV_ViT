@@ -7,7 +7,8 @@
 \providecommand{\BIBentrySTDinterwordspacing}{\spaceskip=0pt\relax}
 \providecommand{\BIBentryALTinterwordstretchfactor}{4}
 \providecommand{\BIBentryALTinterwordspacing}{\spaceskip=\fontdimen2\font plus
-\BIBentryALTinterwordstretchfactor\fontdimen3\font minus \fontdimen4\font\relax}
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
 \providecommand{\BIBforeignlanguage}[2]{{%
 \expandafter\ifx\csname l@#1\endcsname\relax
 \typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
@@ -22,72 +23,114 @@
 
 \bibitem{fao2023}
 \BIBentryALTinterwordspacing
-Food and A.~O. of~the United~Nations, \emph{The State of Food and Agriculture 2022}.\hskip 1em plus 0.5em minus 0.4em\relax FAO, 2023. [Online]. Available: \url{https://www.fao.org/3/cb2429en/cb2429en.pdf}
+Food and A.~O. of~the United~Nations, \emph{The State of Food and Agriculture
+  2022}.\hskip 1em plus 0.5em minus 0.4em\relax FAO, 2023. [Online]. Available:
+  \url{https://www.fao.org/3/cb2429en/cb2429en.pdf}
 \BIBentrySTDinterwordspacing
 
 \bibitem{unpd22}
 \BIBentryALTinterwordspacing
-U.~N.~P. Division, ``World population prospects 2022 revision,'' 2022. [Online]. Available: \url{https://population.un.org/wpp/}
+U.~N.~P. Division, ``World population prospects 2022 revision,'' 2022.
+  [Online]. Available: \url{https://population.un.org/wpp/}
 \BIBentrySTDinterwordspacing
 
 \bibitem{UAV_HTPAR_2016}
 \BIBentryALTinterwordspacing
-Y.~Shi, J.~A. Thomasson, S.~C. Murray, N.~A. Pugh, W.~L. Rooney, S.~Shafian, N.~Rajan, G.~Rouze, C.~L.~S. Morgan, H.~L. Neely, A.~Rana, M.~V. Bagavathiannan, J.~Henrickson, E.~Bowden, J.~Valasek, J.~Olsenholler, M.~P. Bishop, R.~Sheridan, E.~B. Putman, S.~Popescu, T.~Burks, D.~Cope, A.~Ibrahim, B.~F. McCutchen, D.~D. Baltensperger, R.~V. Avant, Jr, M.~Vidrine, and C.~Yang, ``Unmanned aerial vehicles for high-throughput phenotyping and agronomic research,'' \emph{PLOS ONE}, vol.~11, pp. 1--26, 07 2016. [Online]. Available: \url{https://doi.org/10.1371/journal.pone.0159781}
+Y.~Shi, J.~A. Thomasson, S.~C. Murray, N.~A. Pugh, W.~L. Rooney, S.~Shafian,
+  N.~Rajan, G.~Rouze, C.~L.~S. Morgan, H.~L. Neely, A.~Rana, M.~V.
+  Bagavathiannan, J.~Henrickson, E.~Bowden, J.~Valasek, J.~Olsenholler, M.~P.
+  Bishop, R.~Sheridan, E.~B. Putman, S.~Popescu, T.~Burks, D.~Cope, A.~Ibrahim,
+  B.~F. McCutchen, D.~D. Baltensperger, R.~V. Avant, Jr, M.~Vidrine, and
+  C.~Yang, ``Unmanned aerial vehicles for high-throughput phenotyping and
+  agronomic research,'' \emph{PLOS ONE}, vol.~11, pp. 1--26, 07 2016. [Online].
+  Available: \url{https://doi.org/10.1371/journal.pone.0159781}
 \BIBentrySTDinterwordspacing
 
 \bibitem{jung2021potential}
-J.~Jung, M.~Maeda, A.~Chang, M.~Bhandari, A.~Ashapure, and J.~Landivar-Bowles, ``The potential of remote sensing and artificial intelligence as tools to improve the resilience of agriculture production systems,'' \emph{Current Opinion in Biotechnology}, vol.~70, pp. 15--22, 2021.
+J.~Jung, M.~Maeda, A.~Chang, M.~Bhandari, A.~Ashapure, and J.~Landivar-Bowles,
+  ``The potential of remote sensing and artificial intelligence as tools to
+  improve the resilience of agriculture production systems,'' \emph{Current
+  Opinion in Biotechnology}, vol.~70, pp. 15--22, 2021.
 
 \bibitem{chang2017crop}
-A.~Chang, J.~Jung, M.~M. Maeda, and J.~Landivar, ``Crop height monitoring with digital imagery from unmanned aerial system (uas),'' \emph{Computers and Electronics in Agriculture}, vol. 141, pp. 232--237, 2017.
+A.~Chang, J.~Jung, M.~M. Maeda, and J.~Landivar, ``Crop height monitoring with
+  digital imagery from unmanned aerial system (uas),'' \emph{Computers and
+  Electronics in Agriculture}, vol. 141, pp. 232--237, 2017.
 
 \bibitem{shi_2021_5089956}
-Y.~Shi, J.~A. Thomasson, S.~C. Murray, N.~A. Pugh, W.~L. Rooney, S.~Shafian, N.~Rajan, G.~Rouze, C.~L. Morgan, H.~L. Neely, A.~Rana, M.~V. Bagavathiannan, J.~Henrichson, E.~Bowden, J.~Valasek, J.~Olsenholler, M.~P. Bishop, R.~Sheridan, E.~B. Putman, S.~Popescu, T.~Burks, D.~Cope, A.~Ibrahim, B.~F. McCutchen, D.~D. Baltensperger, R.~V. Avant~Jr, M.~Vidrine, C.~Yang, C.~L.~S. Morgan, R.~V. Avant, and J.~Henrickson, ``Data from: Unmanned aerial vehicles for high-throughput phenotyping and agronomic research,'' 07 2021.
+Y.~Shi, J.~A. Thomasson, S.~C. Murray, N.~A. Pugh, W.~L. Rooney, S.~Shafian,
+  N.~Rajan, G.~Rouze, C.~L. Morgan, H.~L. Neely, A.~Rana, M.~V. Bagavathiannan,
+  J.~Henrichson, E.~Bowden, J.~Valasek, J.~Olsenholler, M.~P. Bishop,
+  R.~Sheridan, E.~B. Putman, S.~Popescu, T.~Burks, D.~Cope, A.~Ibrahim, B.~F.
+  McCutchen, D.~D. Baltensperger, R.~V. Avant~Jr, M.~Vidrine, C.~Yang, C.~L.~S.
+  Morgan, R.~V. Avant, and J.~Henrickson, ``Data from: Unmanned aerial vehicles
+  for high-throughput phenotyping and agronomic research,'' 07 2021.
 
 \bibitem{dosovitskiy2021image}
-A.~Dosovitskiy, L.~Beyer, A.~Kolesnikov, D.~Weissenborn, X.~Zhai, T.~Unterthiner, M.~Dehghani, M.~Minderer, G.~Heigold, S.~Gelly, J.~Uszkoreit, and N.~Houlsby, ``An image is worth 16x16 words: Transformers for image recognition at scale,'' 2021.
+A.~Dosovitskiy, L.~Beyer, A.~Kolesnikov, D.~Weissenborn, X.~Zhai,
+  T.~Unterthiner, M.~Dehghani, M.~Minderer, G.~Heigold, S.~Gelly, J.~Uszkoreit,
+  and N.~Houlsby, ``An image is worth 16x16 words: Transformers for image
+  recognition at scale,'' 2021.
 
 \bibitem{vaswani2023attention}
-A.~Vaswani, N.~Shazeer, N.~Parmar, J.~Uszkoreit, L.~Jones, A.~N. Gomez, L.~Kaiser, and I.~Polosukhin, ``Attention is all you need,'' 2023.
+A.~Vaswani, N.~Shazeer, N.~Parmar, J.~Uszkoreit, L.~Jones, A.~N. Gomez,
+  L.~Kaiser, and I.~Polosukhin, ``Attention is all you need,'' 2023.
 
 \bibitem{ba2016layer}
 J.~L. Ba, J.~R. Kiros, and G.~E. Hinton, ``Layer normalization,'' 2016.
 
 \bibitem{he2015deep}
-K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Deep residual learning for image recognition,'' 2015.
+K.~He, X.~Zhang, S.~Ren, and J.~Sun, ``Deep residual learning for image
+  recognition,'' 2015.
 
 \bibitem{touvron2021training}
-H.~Touvron, M.~Cord, M.~Douze, F.~Massa, A.~Sablayrolles, and H.~Jégou, ``Training data-efficient image transformers \& distillation through attention,'' 2021.
+H.~Touvron, M.~Cord, M.~Douze, F.~Massa, A.~Sablayrolles, and H.~Jégou,
+  ``Training data-efficient image transformers \& distillation through
+  attention,'' 2021.
 
 \bibitem{Falcon_PyTorch_Lightning_2019}
 \BIBentryALTinterwordspacing
-W.~Falcon and {The PyTorch Lightning team}, ``{PyTorch Lightning},'' Mar. 2019. [Online]. Available: \url{https://github.com/Lightning-AI/lightning}
+W.~Falcon and {The PyTorch Lightning team}, ``{PyTorch Lightning},'' Mar. 2019.
+  [Online]. Available: \url{https://github.com/Lightning-AI/lightning}
 \BIBentrySTDinterwordspacing
 
 \bibitem{paszke2019pytorch}
-A.~Paszke, S.~Gross, F.~Massa, A.~Lerer, J.~Bradbury, G.~Chanan, T.~Killeen, Z.~Lin, N.~Gimelshein, L.~Antiga, A.~Desmaison, A.~Köpf, E.~Yang, Z.~DeVito, M.~Raison, A.~Tejani, S.~Chilamkurthy, B.~Steiner, L.~Fang, J.~Bai, and S.~Chintala, ``Pytorch: An imperative style, high-performance deep learning library,'' 2019.
+A.~Paszke, S.~Gross, F.~Massa, A.~Lerer, J.~Bradbury, G.~Chanan, T.~Killeen,
+  Z.~Lin, N.~Gimelshein, L.~Antiga, A.~Desmaison, A.~Köpf, E.~Yang, Z.~DeVito,
+  M.~Raison, A.~Tejani, S.~Chilamkurthy, B.~Steiner, L.~Fang, J.~Bai, and
+  S.~Chintala, ``Pytorch: An imperative style, high-performance deep learning
+  library,'' 2019.
 
 \bibitem{deng2009imagenet}
-J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei, ``Imagenet: A large-scale hierarchical image database,'' in \emph{2009 IEEE conference on computer vision and pattern recognition}.\hskip 1em plus 0.5em minus 0.4em\relax Ieee, 2009, pp. 248--255.
+J.~Deng, W.~Dong, R.~Socher, L.-J. Li, K.~Li, and L.~Fei-Fei, ``Imagenet: A
+  large-scale hierarchical image database,'' in \emph{2009 IEEE conference on
+  computer vision and pattern recognition}.\hskip 1em plus 0.5em minus
+  0.4em\relax Ieee, 2009, pp. 248--255.
 
 \bibitem{moshagen2021finding}
-T.~Moshagen, N.~A. Adde, and A.~N. Rajgopal, ``Finding hidden-feature depending laws inside a data set and classifying it using neural network,'' 2021.
+T.~Moshagen, N.~A. Adde, and A.~N. Rajgopal, ``Finding hidden-feature depending
+  laws inside a data set and classifying it using neural network,'' 2021.
 
-\bibitem{loshchilov2019decoupled}
-I.~Loshchilov and F.~Hutter, ``Decoupled weight decay regularization,'' 2019.
+\bibitem{huber1964robust}
+\BIBentryALTinterwordspacing
+P.~J. Huber, ``{Robust Estimation of a Location Parameter},'' \emph{The Annals
+  of Mathematical Statistics}, vol.~35, no.~1, pp. 73 -- 101, 1964. [Online].
+  Available: \url{https://doi.org/10.1214/aoms/1177703732}
+\BIBentrySTDinterwordspacing
 
 \bibitem{kingma2017adam}
 D.~P. Kingma and J.~Ba, ``Adam: A method for stochastic optimization,'' 2017.
 
+\bibitem{loshchilov2019decoupled}
+I.~Loshchilov and F.~Hutter, ``Decoupled weight decay regularization,'' 2019.
+
 \bibitem{smith2017cyclical}
 L.~N. Smith, ``Cyclical learning rates for training neural networks,'' 2017.
 
-\bibitem{huber1964robust}
-\BIBentryALTinterwordspacing
-P.~J. Huber, ``{Robust Estimation of a Location Parameter},'' \emph{The Annals of Mathematical Statistics}, vol.~35, no.~1, pp. 73 -- 101, 1964. [Online]. Available: \url{https://doi.org/10.1214/aoms/1177703732}
-\BIBentrySTDinterwordspacing
-
 \bibitem{singh2022revisiting}
-M.~Singh, L.~Gustafson, A.~Adcock, V.~de~Freitas~Reis, B.~Gedik, R.~P. Kosaraju, D.~Mahajan, R.~Girshick, P.~Dollár, and L.~van~der Maaten, ``Revisiting weakly supervised pre-training of visual perception models,'' 2022.
+M.~Singh, L.~Gustafson, A.~Adcock, V.~de~Freitas~Reis, B.~Gedik, R.~P.
+  Kosaraju, D.~Mahajan, R.~Girshick, P.~Dollár, and L.~van~der Maaten,
+  ``Revisiting weakly supervised pre-training of visual perception models,''
+  2022.
 
 \end{thebibliography}

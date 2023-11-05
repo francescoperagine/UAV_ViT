@@ -56,15 +56,41 @@ In our case, we used the pre-trained model to extract features from ImageNet and
 
 To tailor the model for our regression task, we replaced the backbone's $head$ with a linear layer, which outputs a single-value output.
 
-We adopted the Log Cosh loss function\cite{moshagen2021finding}, which is more robust to outliers.
-For small errors it behaves as Mean Squared Error (MSE) whilst for large errors behaves as the Mean Absolute Error (MAE).
-The loss function is defined as:
+\subsection{Loss Function}
+\label{subsec:loss_function}
+
+
+We adopted the Log Cosh Loss function \cite{moshagen2021finding} to measure the deviation of prediction from the actual value.
+
 \begin{equation}
 \label{eq:logcosh}
-\text{LogCosh}(y, \hat{y}) = \frac{1}{n} \sum_{n = 1}^{n} \log(\cosh(\hat{y} - y))
+    \text{LogCosh}(y, \hat{y}) = \frac{1}{n} \sum_{n = 1}^{n} \log(\cosh(\hat{y} - y))
 \end{equation}
-The optimizer of choice is AdamW \cite{loshchilov2019decoupled}, which is a variant of Adam \cite{kingma2017adam} that uses weight decay regularization.
-Hutter pointed out in their paper that the weight decay is implemented wrongly in Adam and proposed a way to fix it.
+
+Similarly to the Huber Loss function \cite{huber1964robust}, the Log Cosh is a combination of linear and quadratic scorings as calculates the log of hyperbolic cosine of the error.
+Its implementation uses the $SoftPlus$ activation function, that is a smooth approximation to the ReLU function, and can be used to constrain the output of a machine to always be positive.
+
+\begin{equation}
+    \label{eq:softplus}
+    \text{Softplus}(x) = \frac{1}{\beta} \ast \log(1 + \exp(\beta \ast x))
+\end{equation}
+
+\begin{figure}[t!]
+    \includegraphics[width=\linewidth]{../images/LogCoshHuberLoss}
+    \caption{LogCosh and HuberLoss functions.}
+    \label{fig:LogCoshHuberLoss}
+    \centering
+\end{figure}
+Differently from the Huber Loss, Log Cosh is not a piecewise function, it is twice differentiable and it does not require the additional delta ($\delta$) hyperparameter to distinguish between linearity above and quadratic natures below it \ref{fig:LogCoshHuberLoss}.
+Therefore, it has a considerable advantage over Huber loss for its property of continuity and differentiability.
+It is, however, less adaptive than Huber loss due to the absence of any hyper-parameter.
+
+
+\subsection{Optimizer}
+\label{subsec:optimizer}
+
+The optimizer of choice is Adam \cite{kingma2017adam} that uses weight decay regularization.
+Hutter pointed out in their paper \cite{loshchilov2019decoupled} that the weight decay is implemented wrongly in Adam and proposed a way to fix it.
 \begin{equation}
 \label{eq:first_moment}
 m_t = \beta_1 m_{t-1} + (1 - \beta_1) g_t
@@ -77,4 +103,4 @@ v_t = \beta_2 v_{t-1} + (1 - \beta_2) g_t^2
 \label{eq:weight_update}
 w_t = w_{t-1} - \frac{lr}{1 - \beta_1^t} \cdot \frac{m_t}{\sqrt{v_t} + \epsilon}
 \end{equation}
-where $m_t$ and $v_t$ are the first and second moments of the gradient, $w_t$ is the weight at time step $t$, $g_t$ is the derivative of the cost with respect to $w_t$, $\beta_1$ and $\beta_2$ are the exponential decay rates for the moment estimates, $lr$ is the learning rate, $\epsilon$ is a small constant to prevent division by zero.
+In the equations, $m_t$ and $v_t$ are the first and second moments of the gradient, $w_t$ is the weight at time step $t$, $g_t$ is the derivative of the cost with respect to $w_t$, $\beta_1$ and $\beta_2$ are the exponential decay rates for the moment estimates, $lr$ is the learning rate, $\epsilon$ is a small constant to prevent division by zero.
