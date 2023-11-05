@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex UAV_ViT"] 1699199581 "UAV_ViT.aux" "UAV_ViT.bbl" "UAV_ViT" 1699199584
-  "UAV_ViT.aux" 1699199583 12157 436707bace3573115056f3acd212c0dd "pdflatex"
+["bibtex UAV_ViT"] 1699199675 "UAV_ViT.aux" "UAV_ViT.bbl" "UAV_ViT" 1699199678
+  "UAV_ViT.aux" 1699199677 12157 436707bace3573115056f3acd212c0dd "pdflatex"
   "c:/texlive/2022/texmf-dist/bibtex/bst/ieeetran/IEEEtran.bst" 1667825347 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
   "references.bib" 1699199562 9552 166b761ddffb2b7c10a847ae425ab903 ""
   (generated)
   "UAV_ViT.bbl"
   "UAV_ViT.blg"
-["pdflatex"] 1699199581 "c:/Users/Thuls/Documents/repository/UAV_ViT/docs/paper/UAV_ViT.tex" "UAV_ViT.pdf" "UAV_ViT" 1699199584
-  "UAV_ViT.aux" 1699199583 12157 436707bace3573115056f3acd212c0dd "pdflatex"
-  "UAV_ViT.bbl" 1699199581 6001 67eb535a96ed1f376eba8b6fb731bf7a "bibtex UAV_ViT"
-  "UAV_ViT.brf" 1699199583 1592 e12c9cd051ebd8e02e289583c6d67c04 "pdflatex"
-  "UAV_ViT.out" 1699199583 2291 1beb1c4de01b09f35aad719722567b44 "pdflatex"
+["pdflatex"] 1699199676 "c:/Users/Thuls/Documents/repository/UAV_ViT/docs/paper/UAV_ViT.tex" "UAV_ViT.pdf" "UAV_ViT" 1699199678
+  "UAV_ViT.aux" 1699199677 12157 436707bace3573115056f3acd212c0dd "pdflatex"
+  "UAV_ViT.bbl" 1699199676 6001 67eb535a96ed1f376eba8b6fb731bf7a "bibtex UAV_ViT"
+  "UAV_ViT.brf" 1699199677 1592 e12c9cd051ebd8e02e289583c6d67c04 "pdflatex"
+  "UAV_ViT.out" 1699199677 2291 1beb1c4de01b09f35aad719722567b44 "pdflatex"
   "UAV_ViT.tex" 1699180527 1268 31ddec23481825bf9e7828306671f124 ""
   "c:/Users/Thuls/Documents/repository/UAV_ViT/docs/paper/UAV_ViT.tex" 1699180527 1268 31ddec23481825bf9e7828306671f124 ""
   "c:/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1667824687 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
