@@ -5,6 +5,7 @@ venv
 # Data
 data/
 docs/
+scripts/
 
 lib/__pycache__
 mlruns/

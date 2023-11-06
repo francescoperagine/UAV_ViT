@@ -1,8 +1,5 @@
 \documentclass[10pt,twocolumn,letterpaper]{article}
 
-% Packages
-% \usepackage{cite} % for citations
-
 \usepackage{cvpr}
 \usepackage{times}
 \usepackage{epsfig}
@@ -12,16 +9,17 @@
 \usepackage{pxfonts}
 \usepackage[pagebackref,breaklinks,colorlinks,citecolor=cvprblue]{hyperref}
 \usepackage{lineno}
+\usepackage{bookmark}
 \usepackage{hyperref}
-
-% \linenumbers
-% \usepackage{bookmark} % for updating outlines
-
+\bookmarksetup{
+    numbered, 
+    open,
+    }
 
 \graphicspath{ {./images/} } 
 
 \begin{document}
-% Title and author information
+
 \title{Unmanned Aerial Vehicles powered by Vision Transformer\\ for Precision Agriculture}
 \author{Author Name}
 \date{\today}
@@ -35,11 +33,11 @@ Bari, Italy\\
 {\tt\small f.peragine@studenti.uniba.it}}
 
 \maketitle
-\pagestyle{empty}
-\newpage
+% \pagestyle{empty}
+% \newpage
 \pagenumbering{arabic} 
 \pagestyle{plain}
-\setcounter{page}{1}
+% \setcounter{page}{1}
 
 \input{sec/0_abstract}    
 \input{sec/1_introduction}

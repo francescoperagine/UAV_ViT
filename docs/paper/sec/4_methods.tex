@@ -98,7 +98,7 @@ It is, however, less adaptive than Huber loss due to the absence of any hyper-pa
 \end{figure}
 
 The Pseudo-Huber Loss is a smooth approximation to the Huber Loss function and is twice differentiable.
-The main difference between the Log Cosh Loss and the Pseudo-Huber Loss functions is that the log cosh loss is always a quadratic function, while the pseudo-huber loss is a quadratic function for values of $|y - \hat{y}|$ below the threshold $\delta$ and a linear function for values of $|y - \hat{y}|$ above the threshold $\delta$.
+The main difference between the Log Cosh Loss and the Pseudo-Huber Loss functions is that the Log Cosh loss is always a quadratic function, while the pseudo-huber loss is a quadratic function for values of $|y - \hat{y}|$ below the threshold $\delta$ and a linear function for values of $|y - \hat{y}|$ above the threshold $\delta$.
 
 \begin{equation}
 L(y, \hat{y}) = \begin{cases}
@@ -107,9 +107,9 @@ L(y, \hat{y}) = \begin{cases}
     \end{cases}
 \end{equation}
 
-The log cosh loss has the advantage of being always a quadratic function, which makes it more efficient to optimize than the pseudo-huber loss. However, the log cosh loss may be less robust to outliers than the pseudo-huber loss.
+As mentioned, the Log Cosh loss has the advantage of being always a quadratic function, which makes it more efficient to optimize than the pseudo-huber loss. However, the Log Cosh loss may be less robust to outliers than the pseudo-huber loss.
 
-The pseudo-huber loss has the advantage of being robust to outliers, which makes it a good choice for datasets that contain outliers. However, the pseudo-huber loss may be less efficient to optimize than the log cosh loss.
+The pseudo-huber loss has the advantage of being robust to outliers, which makes it a good choice for datasets that contain outliers. However, the pseudo-huber loss may be less efficient to optimize than the Log Cosh loss.
 
 \subsection{Optimizer}
 \label{subsec:optimizer}

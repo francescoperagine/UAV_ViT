@@ -1,11 +1,17 @@
 \section{Experiments}
 \label{sec:experiments}
 
-In this section, we provide an overview of the experiments performed to assess the performance and robustness of the PyTorch ViT\_B\_16 model in the context of precision agriculture.
+In this section, we provide an overview of the experiments performed to assess the performance and robustness of the PyTorch ViT\_B\_32 model in the context of precision agriculture.
 
-In our experimentation, we observed a tendency for the model to overfit, given the relatively small dataset. Overfitting occurs when models become overly specialized in the training data, which can compromise their ability to generalize effectively. To counter this, we explored an array of strategies and fine-tuned essential parameters. We also investigated alternative ways to optimize the hyperparameters and the model performace \cite{touvron2021training}, such as the Learning Rate finder \cite{smith2017cyclical} and alternate weights sets \cite{singh2022revisiting}.
+During our experimentation, we observed a tendency for the model to overfit, given the relatively small dataset size. Overfitting occurs when models become overly specialized to the training data, compromising their ability to generalize effectively. To mitigate this issue, we explored various strategies and fine-tuned essential parameters. We also investigated alternative methods for optimizing hyperparameters and model performance, such as the Learning Rate Finder and alternate weights sets \cite{touvron2021training, smith2017cyclical, singh2022revisiting}.
 
-Furthermore, as stated in \ref{sec:methods} we investigated the effect of different loss functions, including Huber Loss, Pseudo-Huber Loss and Log-Cosh Loss, aiming to enhance the model's performance. These experiments are supported by insightful visualizations, which help assess the model's behavior and predictive capabilities.
+As mentioned in Section \ref{sec:methods}, we investigated the effect of different loss functions, including Huber Loss, Pseudo-Huber Loss, and Log-Cosh Loss, aiming to enhance the model's performance. These experiments were supported by insightful visualizations that aided in assessing the model's behavior and predictive capabilities.
+
+For the experimentation, we introduced two custom transformation layers to address specific challenges in our dataset. The first layer was designed to accommodate the non-uniformity in the plot images by applying padding as needed. This adjustment ensured that all input images had consistent dimensions, a crucial step in maintaining data integrity for our model.
+
+The second layer was tailored to facilitate the correct application of Min-Max scaling to three-channel images. Given the multi-channel nature of our data, a standard Min-Max scaling operation required modification to operate effectively. This customized layer allowed us to accurately scale the image data, enhancing the model's performance and the quality of our experimental results. These adaptations were instrumental in ensuring the compatibility of our dataset with the Vision Transformer architecture and improving the overall experimental outcomes.
+
+Furthermore, we provided an implementation of the Log-Cosh Loss function. This step was necessitated by the absence of the Log-Cosh Loss in the PyTorch library. It provided a robust alternative to standard loss functions, enabling more accurate modeling and performance evaluation.
 
 \begin{figure*}
     \begin{subfigure}{0.66\columnwidth}
@@ -49,9 +55,12 @@ Furthermore, as stated in \ref{sec:methods} we investigated the effect of differ
 \subsection{Results}
 \label{sec:results}
 
-The residuals are randomly distributed around the zero line, suggesting that the model is doing a good job of fitting the data \ref{fig:residuals_vs_outputs}. 
-Overall, the model does a good job of predicting values, as evidenced by the correlation between predicted and actual values \ref{fig:outputs_vs_targets}. 
-However, there are a few data points that are outside the main cluster. These points may be outliers, which are data points that do not fit the overall pattern of the data.
-In this case, due to the measurement of the ground truth taken three weeks earlier that the DSM imaging, the outliers are likely due to measurement errors. 
+The results of our experiments are presented in the graphs. The outputs vs. targets plot (\ref{fig:outputs_vs_targets}) illustrates a positive correlation between predicted and actual values, indicating the model's ability to capture the underlying relationship. However, a few data points lie outside the main cluster, suggesting potential outliers. These outliers may be attributed to measurement errors arising from the three-week gap between ground truth measurements and DSM imaging.
 
-Results were not promising as the model was not able to strike a good R2Score. Across multiple hyperparameters configuration, the best R2Score result was was $\approx  0.27$ and it was observed with 9 frozen layers, LR =$1\exp{-6}$, Weight Decay = $1\exp{-1}$ and dropout $0.2$. This is likely due to the small dataset size, which is not enough to train a model with 86 million parameters. The model was also not able to converge, as the loss function was not able to reach a minimum value. This is likely due to the small learning rate, which was necessary to avoid overfitting.
+The residuals vs. outputs plot (\ref{fig:residuals_vs_outputs}) demonstrates a random distribution of residuals around the zero line, suggesting that the model is fitting the data effectively. The residuals errors plot (\ref{fig:residuals_errors}) further confirms this observation, as the residuals fluctuate around zero without any significant trends.
+
+The targets means vs. losses plot (\ref{fig:targets_means_vs_losses}) indicates that the model exhibits higher losses for groups of data points with higher target means. This suggests that the model may encounter some difficulty in predicting values for these groups.
+
+The residuals histogram (\ref{fig:residuals_hist}) reveals an approximately normal distribution of residuals, implying that the model is not systematically over- or under-predicting the target variable. Finally, the boxplot (\ref{fig:boxplot}) provides an overview of the target variable's distribution.
+
+Despite the implemented strategies, the model's performance was not as promising as expected, with an R2Score of approximately 0.27 across multiple hyperparameter configurations. This suboptimal performance can be attributed to the limited dataset size, which is insufficient to adequately train a model with 86 million parameters. Additionally, the model failed to converge, as the loss function was unable to reach a minimum value. This is likely due to the conservative learning rate employed to prevent overfitting.
