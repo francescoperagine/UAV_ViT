@@ -3,9 +3,9 @@ venv
 .env
 
 # Data
-data/
-docs/
-scripts/
+data
+/docs/*
+!/docs/presentation
 
 lib/__pycache__
 mlruns/
