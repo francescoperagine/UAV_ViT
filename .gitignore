@@ -3,7 +3,8 @@ venv
 .env
 
 # Data
-data
+data/
+scripts/
 /docs/*
 !/docs/presentation
 
